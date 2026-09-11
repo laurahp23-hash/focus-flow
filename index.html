@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Flow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>🌊 Focus Flow</h1>
+      <div class="streak-badge" id="streakBadge">
+        <span class="flame">🔥</span>
+        <span id="streakCount">0</span>
+        <span class="streak-label">días</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="timer-panel">
+        <div class="mode-tabs">
+          <button class="mode-tab active" data-mode="focus">Enfoque</button>
+          <button class="mode-tab" data-mode="short">Descanso corto</button>
+          <button class="mode-tab" data-mode="long">Descanso largo</button>
+        </div>
+
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 240 240">
+            <circle class="ring-bg" cx="120" cy="120" r="110"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="120" cy="120" r="110"></circle>
+          </svg>
+          <div class="timer-center">
+            <span id="timeDisplay">25:00</span>
+            <span class="active-task-label" id="activeTaskLabel">Sin tarea activa</span>
+          </div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="resetBtn" class="btn btn-ghost" title="Reiniciar">↺</button>
+          <button id="startPauseBtn" class="btn btn-primary">Iniciar</button>
+          <button id="skipBtn" class="btn btn-ghost" title="Saltar">⏭</button>
+        </div>
+
+        <p class="session-count">Sesiones de hoy: <strong id="sessionsToday">0</strong></p>
+      </section>
+
+      <section class="tasks-panel">
+        <h2>Tareas</h2>
+        <form id="taskForm" class="task-form">
+          <input type="text" id="taskInput" placeholder="¿En qué vas a enfocarte?" maxlength="80" autocomplete="off">
+          <button type="submit" class="btn btn-primary btn-small">Añadir</button>
+        </form>
+        <ul id="taskList" class="task-list"></ul>
+        <p id="emptyState" class="empty-state">Añade una tarea y selecciónala para empezar a enfocarte.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
